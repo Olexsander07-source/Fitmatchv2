@@ -1,954 +1,770 @@
-:root {
-  --bg: #0d0a0b;
-  --panel: #171113;
-  --panel2: #21191b;
-  --line: #382b2e;
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
 
-  --text: #f8f1f2;
-  --muted: #aa9da0;
+  <title>MANICURE — Маникюр и уход за ногтями</title>
 
-  --accent: #e9b8c3;
-  --accent-light: #f7dce2;
+  <meta
+    name="description"
+    content="Маникюрный салон. Маникюр, покрытие, дизайн ногтей и другие услуги. Выберите услугу и запишитесь онлайн."
+  >
 
-  --danger: #ff8d8d;
-  --success: #8ee59b;
-}
+  <link rel="stylesheet" href="styles.css">
+</head>
 
-* {
-  box-sizing: border-box;
-}
 
-html {
-  scroll-behavior: smooth;
-}
+<body>
 
-body {
-  margin: 0;
+  <!-- ================= HEADER ================= -->
 
-  background:
-    radial-gradient(
-      circle at 80% 10%,
-      rgba(233, 184, 195, 0.08),
-      transparent 30%
-    ),
-    var(--bg);
+  <header class="header">
 
-  color: var(--text);
+    <button
+      class="logo"
+      id="logo"
+      type="button"
+    >
+      MANI<span>CURE</span>
+    </button>
 
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-}
 
-button,
-input,
-select,
-textarea {
-  font: inherit;
-}
+    <button
+      id="hamburger"
+      class="hamburger"
+      type="button"
+      aria-label="Открыть меню"
+    >
+      ☰
+    </button>
 
-button {
-  cursor: pointer;
-}
 
+    <nav
+      id="mainNav"
+      class="nav"
+    >
 
-/* =========================
-   HEADER
-========================= */
+      <button
+        data-nav="home"
+        type="button"
+      >
+        Главная
+      </button>
 
-.header {
-  min-height: 76px;
+      <button
+        data-nav="services"
+        type="button"
+      >
+        Услуги
+      </button>
 
-  border-bottom:
-    1px solid var(--line);
+      <button
+        data-nav="masters"
+        type="button"
+      >
+        Мастера
+      </button>
 
-  display: flex;
+      <button
+        data-nav="reviews"
+        type="button"
+      >
+        Отзывы
+      </button>
 
-  align-items: center;
-  justify-content: space-between;
+    </nav>
 
-  padding: 0 5%;
 
-  position: sticky;
-  top: 0;
+    <div class="header-actions">
 
-  background:
-    rgba(13, 10, 11, 0.94);
+      <button
+        id="authBtn"
+        class="btn"
+        type="button"
+      >
+        Войти
+      </button>
 
-  backdrop-filter: blur(12px);
+      <button
+        id="bookingBtn"
+        class="login-btn"
+        type="button"
+      >
+        Записаться
+      </button>
 
-  z-index: 10;
-}
+    </div>
 
-.logo {
-  font-size: 23px;
+  </header>
 
-  font-weight: 900;
 
-  letter-spacing: 1px;
 
-  background: none;
+  <!-- ================= MAIN ================= -->
 
-  border: 0;
+  <main>
 
-  color: var(--text);
-}
 
-.logo span {
-  color: var(--accent);
-}
+    <!-- ================= HOME ================= -->
 
-.hamburger {
-  display: none;
+    <section
+      id="home"
+      class="page active"
+    >
 
-  background: none;
+      <div class="container hero">
 
-  color: var(--text);
+        <div>
 
-  border: 0;
+          <p class="eyebrow">
+            MANICURE STUDIO
+          </p>
 
-  font-size: 24px;
-}
 
-.nav {
-  display: flex;
+          <h1>
+            КРАСИВЫЕ<br>
+            <em>НОГТИ.</em><br>
+            ТВОЙ СТИЛЬ.
+          </h1>
 
-  gap: 8px;
-}
 
-.nav button {
-  background: none;
+          <p class="lead">
+            Профессиональный маникюр,
+            покрытие и дизайн ногтей.
+            Выберите услугу и запишитесь онлайн.
+          </p>
 
-  border: 0;
 
-  color: var(--muted);
+          <button
+            class="btn btn-primary"
+            id="bookingBtnHome"
+            type="button"
+          >
+            ЗАПИСАТЬСЯ →
+          </button>
 
-  padding: 8px 10px;
 
-  transition:
-    color 0.2s;
-}
+          <button
+            class="btn"
+            id="chooseServiceBtn"
+            type="button"
+          >
+            ВЫБРАТЬ УСЛУГУ
+          </button>
 
-.nav button:hover {
-  color: var(--accent);
-}
+        </div>
 
 
-/* =========================
-   HEADER ACTIONS
-========================= */
+        <div class="score-box">
 
-.header-actions {
-  display: flex;
+          <p class="eyebrow">
+            НАШ САЛОН
+          </p>
 
-  gap: 10px;
 
-  align-items: center;
-}
+          <div class="score">
+            5.0
+          </div>
 
 
-/* =========================
-   BUTTONS
-========================= */
+          <p class="lead">
+            Рейтинг салона на основе
+            отзывов наших клиентов.
+          </p>
 
-.actions {
-  display: flex;
+        </div>
 
-  gap: 10px;
+      </div>
 
-  flex-wrap: wrap;
 
-  margin-top: 20px;
-}
 
-.login-btn,
-.btn {
-  padding: 11px 17px;
+      <!-- ================= SERVICES ================= -->
 
-  border:
-    1px solid var(--accent);
+      <div class="section dark">
 
-  background: transparent;
+        <div class="container">
 
-  color: var(--text);
+          <h2 class="section-title">
+            НАШИ УСЛУГИ
+          </h2>
 
-  border-radius: 7px;
 
-  transition:
-    transform 0.2s,
-    background 0.2s,
-    color 0.2s,
-    box-shadow 0.2s;
-}
+          <div
+            class="sports-grid"
+            id="homeServices"
+          ></div>
 
-.btn-primary {
-  background: var(--accent);
+        </div>
 
-  color: #170f11;
+      </div>
 
-  font-weight: 800;
 
-  border-color: var(--accent);
-}
 
-.btn:hover,
-.login-btn:hover {
-  transform: translateY(-2px);
+      <!-- ================= TOP MASTERS ================= -->
 
-  box-shadow:
-    0 8px 25px
-    rgba(233, 184, 195, 0.15);
-}
+      <div class="section">
 
-.btn-primary:hover {
-  background: var(--accent-light);
-}
+        <div class="container">
 
+          <h2 class="section-title">
+            НАШИ МАСТЕРА
+          </h2>
 
-/* =========================
-   PAGES
-========================= */
 
-.page {
-  display: none;
+          <div
+            class="coach-grid"
+            id="topMasters"
+          ></div>
 
-  min-height:
-    calc(100vh - 76px);
-}
+        </div>
 
-.page.active {
-  display: block;
-}
+      </div>
 
-.container {
-  max-width: 1200px;
 
-  margin: auto;
+    </section>
 
-  padding: 55px 25px;
-}
 
 
-/* =========================
-   HERO
-========================= */
+    <!-- ================= SERVICES PAGE ================= -->
 
-.hero {
-  min-height: 570px;
+    <section
+      id="services"
+      class="page"
+    >
 
-  display: grid;
+      <div class="container">
 
-  grid-template-columns:
-    1.4fr 0.6fr;
+        <h1 class="page-title">
+          ВЫБЕРИ<br>
+          <em>УСЛУГУ.</em>
+        </h1>
 
-  align-items: center;
 
-  gap: 55px;
-}
+        <div
+          class="sports-grid"
+          id="servicesList"
+        ></div>
 
-.eyebrow {
-  color: var(--accent);
+      </div>
 
-  font-size: 11px;
+    </section>
 
-  letter-spacing: 3px;
 
-  font-weight: 700;
 
-  text-transform: uppercase;
-}
+    <!-- ================= MASTERS PAGE ================= -->
 
-h1 {
-  font-size:
-    clamp(
-      46px,
-      8vw,
-      100px
-    );
+    <section
+      id="masters"
+      class="page"
+    >
 
-  line-height: 0.9;
+      <div class="container">
 
-  margin: 20px 0;
+        <h1 class="page-title">
+          НАЙДИ<br>
+          <em>СВОЕГО МАСТЕРА.</em>
+        </h1>
 
-  letter-spacing: -4px;
-}
 
-h1 em {
-  color: var(--accent);
+        <div
+          class="coach-grid"
+          id="mastersList"
+        ></div>
 
-  font-style: normal;
-}
+      </div>
 
-.page-title {
-  font-size:
-    clamp(
-      48px,
-      8vw,
-      90px
-    );
+    </section>
 
-  margin-bottom: 45px;
-}
 
-.lead {
-  color: var(--muted);
 
-  line-height: 1.7;
+    <!-- ================= REVIEWS PAGE ================= -->
 
-  max-width: 620px;
-}
+    <section
+      id="reviews"
+      class="page"
+    >
 
+      <div class="container">
 
-/* =========================
-   HERO SCORE / SALON CARD
-========================= */
+        <h1 class="page-title">
+          ОТЗЫВЫ<br>
+          <em>КЛИЕНТОВ.</em>
+        </h1>
 
-.score-box {
-  background:
-    linear-gradient(
-      145deg,
-      var(--panel),
-      var(--panel2)
-    );
 
-  border:
-    1px solid var(--line);
+        <div id="reviewsList"></div>
 
-  padding: 32px;
 
-  border-radius: 14px;
+        <div class="review-box">
 
-  box-shadow:
-    0 20px 60px
-    rgba(0, 0, 0, 0.3);
-}
+          <h2>
+            Оставить отзыв
+          </h2>
 
-.score {
-  font-size: 82px;
 
-  color: var(--accent);
+          <form
+            id="reviewForm"
+            class="form"
+          >
 
-  font-weight: 900;
+            <label>
 
-  line-height: 1;
-}
+              Оценка
 
+              <select
+                id="reviewRating"
+                required
+              >
 
-/* =========================
-   SECTIONS
-========================= */
+                <option value="">
+                  Выберите оценку
+                </option>
 
-.section {
-  padding: 35px 0;
-}
+                <option value="5">
+                  ★★★★★ — 5
+                </option>
 
-.dark {
-  background:
-    rgba(23, 17, 19, 0.75);
-}
+                <option value="4">
+                  ★★★★☆ — 4
+                </option>
 
-.section-title {
-  font-size: 32px;
+                <option value="3">
+                  ★★★☆☆ — 3
+                </option>
 
-  margin-bottom: 28px;
+                <option value="2">
+                  ★★☆☆☆ — 2
+                </option>
 
-  letter-spacing: -1px;
-}
+                <option value="1">
+                  ★☆☆☆☆ — 1
+                </option>
 
+              </select>
 
-/* =========================
-   SERVICES
-========================= */
+            </label>
 
-.sports-grid {
-  display: grid;
 
-  grid-template-columns:
-    repeat(4, 1fr);
+            <label>
 
-  gap: 16px;
-}
+              Ваш отзыв
 
-.sport-card {
-  background:
-    linear-gradient(
-      145deg,
-      var(--panel),
-      var(--panel2)
-    );
+              <textarea
+                id="reviewText"
+                required
+              ></textarea>
 
-  border:
-    1px solid var(--line);
+            </label>
 
-  padding: 22px;
 
-  border-radius: 12px;
+            <button
+              class="btn btn-primary"
+              type="submit"
+            >
+              ОСТАВИТЬ ОТЗЫВ
+            </button>
 
-  cursor: pointer;
 
-  min-height: 155px;
+            <div id="reviewMessage"></div>
 
-  transition:
-    transform 0.25s,
-    border-color 0.25s,
-    box-shadow 0.25s;
-}
+          </form>
 
-.sport-card:hover {
-  border-color: var(--accent);
+        </div>
 
-  transform: translateY(-4px);
+      </div>
 
-  box-shadow:
-    0 15px 35px
-    rgba(0, 0, 0, 0.25);
-}
+    </section>
 
-.sport-card h3 {
-  margin-top: 0;
 
-  font-size: 20px;
-}
 
-.sport-card p {
-  color: var(--muted);
+    <!-- ================= PROFILE ================= -->
 
-  line-height: 1.5;
-}
+    <section
+      id="profile"
+      class="page"
+    >
 
+      <div
+        class="container"
+        id="profileContent"
+      ></div>
 
-/* =========================
-   MASTERS
-========================= */
+    </section>
 
-.coach-grid {
-  display: grid;
 
-  grid-template-columns:
-    repeat(3, 1fr);
+  </main>
 
-  gap: 18px;
-}
 
-.coach-card {
-  background:
-    linear-gradient(
-      145deg,
-      var(--panel),
-      var(--panel2)
-    );
 
-  border:
-    1px solid var(--line);
+  <!-- ================= AUTH MODAL ================= -->
 
-  padding: 20px;
+  <div
+    id="modal"
+    class="modal"
+  >
 
-  border-radius: 12px;
+    <div class="modal-content">
 
-  cursor: pointer;
+      <h2>
+        Войти
+      </h2>
 
-  transition:
-    transform 0.25s,
-    border-color 0.25s,
-    box-shadow 0.25s;
-}
 
-.coach-card:hover {
-  border-color: var(--accent);
+      <form
+        id="authForm"
+        class="form"
+      >
 
-  transform: translateY(-4px);
+        <label>
 
-  box-shadow:
-    0 15px 35px
-    rgba(0, 0, 0, 0.25);
-}
+          Email
 
-.coach-avatar {
-  width: 72px;
-  height: 72px;
+          <input
+            id="authEmail"
+            type="email"
+            autocomplete="email"
+            required
+          >
 
-  background:
-    linear-gradient(
-      145deg,
-      var(--panel2),
-      #302225
-    );
+        </label>
 
-  border-radius: 50%;
 
-  display: grid;
+        <label>
 
-  place-items: center;
+          Пароль
 
-  color: var(--accent);
+          <input
+            id="authPassword"
+            type="password"
+            minlength="6"
+            autocomplete="current-password"
+            required
+          >
 
-  font-weight: 900;
+        </label>
 
-  margin-bottom: 15px;
 
-  border:
-    1px solid var(--line);
+        <div class="actions">
 
-  overflow: hidden;
-}
+          <button
+            class="btn btn-primary"
+            type="submit"
+          >
+            ВОЙТИ
+          </button>
 
-.coach-avatar img {
-  width: 100%;
-  height: 100%;
 
-  object-fit: cover;
-}
+          <button
+            id="signupBtn"
+            class="btn"
+            type="button"
+          >
+            РЕГИСТРАЦИЯ
+          </button>
 
-.coach-score {
-  float: right;
 
-  color: var(--accent);
+          <button
+            id="modalCancel"
+            class="btn"
+            type="button"
+          >
+            ОТМЕНА
+          </button>
 
-  font-weight: 900;
-}
+        </div>
 
-.tags {
-  margin: 12px 0;
-}
 
-.tag {
-  display: inline-block;
+        <button
+          id="forgotPasswordBtn"
+          class="forgot-password"
+          type="button"
+        >
+          Забыли пароль?
+        </button>
 
-  border:
-    1px solid var(--line);
 
-  padding: 5px 9px;
+        <div id="authMessage"></div>
 
-  color: var(--muted);
+      </form>
 
-  font-size: 12px;
+    </div>
 
-  border-radius: 20px;
+  </div>
 
-  margin-right: 5px;
 
-  margin-bottom: 5px;
-}
 
-.card-footer {
-  border-top:
-    1px solid var(--line);
+  <!-- ================= RESET PASSWORD ================= -->
 
-  padding-top: 14px;
+  <div
+    id="resetPasswordModal"
+    class="modal"
+  >
 
-  display: flex;
+    <div class="modal-content">
 
-  justify-content: space-between;
+      <h2>
+        Создать новый пароль
+      </h2>
 
-  align-items: center;
 
-  gap: 10px;
+      <p class="lead">
+        Введите и подтвердите новый пароль.
+      </p>
 
-  color: var(--muted);
-}
 
+      <form
+        id="resetPasswordForm"
+        class="form"
+      >
 
-/* =========================
-   FILTERS
-========================= */
+        <label>
 
-.filters {
-  display: flex;
+          Новый пароль
 
-  gap: 12px;
+          <input
+            id="newPassword"
+            type="password"
+            minlength="6"
+            autocomplete="new-password"
+            required
+          >
 
-  margin-bottom: 25px;
-}
+        </label>
 
-.filters select,
-.match-box select,
-.form input,
-.form select,
-.form textarea {
-  width: 100%;
 
-  padding: 13px;
+        <label>
 
-  border-radius: 8px;
+          Повторите пароль
 
-  border:
-    1px solid var(--line);
+          <input
+            id="confirmPassword"
+            type="password"
+            minlength="6"
+            autocomplete="new-password"
+            required
+          >
 
-  background: var(--panel2);
+        </label>
 
-  color: var(--text);
 
-  outline: none;
+        <div class="actions">
 
-  transition:
-    border-color 0.2s,
-    box-shadow 0.2s;
-}
+          <button
+            class="btn btn-primary"
+            type="submit"
+          >
+            СОХРАНИТЬ ПАРОЛЬ
+          </button>
 
-.filters select:focus,
-.match-box select:focus,
-.form input:focus,
-.form select:focus,
-.form textarea:focus {
-  border-color: var(--accent);
 
-  box-shadow:
-    0 0 0 3px
-    rgba(233, 184, 195, 0.08);
-}
+          <button
+            id="resetCancel"
+            class="btn"
+            type="button"
+          >
+            ОТМЕНА
+          </button>
 
+        </div>
 
-/* =========================
-   BOOKING
-========================= */
 
-.match-box {
-  background:
-    linear-gradient(
-      145deg,
-      var(--panel),
-      var(--panel2)
-    );
+        <div id="resetMessage"></div>
 
-  border:
-    1px solid var(--line);
+      </form>
 
-  padding: 30px;
+    </div>
 
-  border-radius: 14px;
+  </div>
 
-  max-width: 720px;
-}
 
-.match-box label {
-  display: block;
 
-  margin-bottom: 16px;
+  <!-- ================= BOOKING MODAL ================= -->
 
-  color: var(--muted);
-}
+  <div
+    id="bookingModal"
+    class="modal"
+  >
 
-.match-result {
-  display: flex;
+    <div class="modal-content">
 
-  justify-content: space-between;
+      <h2>
+        Запись на маникюр
+      </h2>
 
-  align-items: center;
 
-  gap: 20px;
+      <p class="lead">
+        Выберите услугу, мастера,
+        дату и удобное время.
+      </p>
 
-  padding: 15px;
 
-  margin-top: 10px;
+      <form
+        id="bookingForm"
+        class="form"
+      >
 
-  background: var(--panel2);
+        <label>
 
-  border:
-    1px solid var(--line);
+          Услуга
 
-  border-radius: 8px;
-}
+          <select
+            id="bookingService"
+            name="service_id"
+            required
+          >
 
-.match-result:hover {
-  border-color: var(--accent);
-}
+            <option value="">
+              Выберите услугу
+            </option>
 
-.match-percent {
-  color: var(--accent);
+          </select>
 
-  font-weight: 900;
-}
+        </label>
 
 
-/* =========================
-   REVIEWS
-========================= */
+        <label>
 
-.review {
-  padding: 20px;
+          Мастер
 
-  margin-top: 12px;
+          <select
+            id="bookingMaster"
+            name="master_id"
+          >
 
-  background:
-    linear-gradient(
-      145deg,
-      var(--panel),
-      var(--panel2)
-    );
+            <option value="">
+              Любой мастер
+            </option>
 
-  border:
-    1px solid var(--line);
+          </select>
 
-  border-radius: 10px;
-}
+        </label>
 
-.review-box {
-  margin-top: 35px;
 
-  background: var(--panel);
+        <label>
 
-  border:
-    1px solid var(--line);
+          Дата
 
-  padding: 25px;
+          <input
+            id="bookingDate"
+            name="booking_date"
+            type="date"
+            required
+          >
 
-  border-radius: 12px;
+        </label>
 
-  max-width: 700px;
-}
 
+        <label>
 
-/* =========================
-   MODALS
-========================= */
+          Время
 
-.modal {
-  position: fixed;
+          <input
+            id="bookingTime"
+            name="booking_time"
+            type="time"
+            required
+          >
 
-  inset: 0;
+        </label>
 
-  display: none;
 
-  align-items: center;
+        <label>
 
-  justify-content: center;
+          Ваше имя
 
-  background:
-    rgba(0, 0, 0, 0.78);
+          <input
+            id="bookingName"
+            name="client_name"
+            type="text"
+            autocomplete="name"
+            required
+          >
 
-  backdrop-filter: blur(5px);
+        </label>
 
-  padding: 20px;
 
-  z-index: 100;
-}
+        <label>
 
-.modal.show {
-  display: flex;
-}
+          Телефон
 
-.modal-content {
-  width: 100%;
+          <input
+            id="bookingPhone"
+            name="client_phone"
+            type="tel"
+            autocomplete="tel"
+            required
+          >
 
-  max-width: 720px;
+        </label>
 
-  max-height: 90vh;
 
-  overflow: auto;
+        <label>
 
-  position: relative;
+          Комментарий
 
-  background:
-    linear-gradient(
-      145deg,
-      var(--panel),
-      var(--panel2)
-    );
+          <textarea
+            id="bookingComment"
+            name="client_comment"
+            placeholder="Например: хочу дизайн / есть старое покрытие..."
+          ></textarea>
 
-  border:
-    1px solid var(--line);
+        </label>
 
-  padding: 30px;
 
-  border-radius: 14px;
+        <div class="actions">
 
-  box-shadow:
-    0 30px 80px
-    rgba(0, 0, 0, 0.5);
-}
+          <button
+            class="btn btn-primary"
+            type="submit"
+          >
+            ПОДТВЕРДИТЬ ЗАПИСЬ →
+          </button>
 
 
-/* =========================
-   FORMS
-========================= */
+          <button
+            id="bookingCancel"
+            class="btn"
+            type="button"
+          >
+            ОТМЕНА
+          </button>
 
-.form label {
-  display: block;
+        </div>
 
-  margin: 14px 0;
 
-  color: var(--muted);
-}
+        <div id="bookingMessage"></div>
 
-.form input,
-.form select,
-.form textarea {
-  margin-top: 7px;
-}
+      </form>
 
-textarea {
-  min-height: 110px;
+    </div>
 
-  resize: vertical;
-}
+  </div>
 
-.success {
-  color: var(--success);
 
-  margin-top: 15px;
-}
 
-.error {
-  color: var(--danger);
+  <!-- ================= FOOTER ================= -->
 
-  margin-top: 15px;
-}
+  <footer>
 
+    © 2026 MANICURE STUDIO
 
-/* =========================
-   AUTH LINKS
-========================= */
+  </footer>
 
-.auth-link,
-.forgot-password {
-  background: none;
 
-  border: 0;
 
-  padding: 8px 0;
+  <!-- ================= JAVASCRIPT ================= -->
 
-  color: var(--accent);
+  <script
+    type="module"
+    src="fitmatch.js"
+  ></script>
 
-  text-decoration: underline;
 
-  font-size: 14px;
-}
+</body>
 
-.auth-link:hover,
-.forgot-password:hover {
-  opacity: 0.8;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-  padding: 30px 20px;
-
-  text-align: center;
-
-  color: var(--muted);
-
-  border-top:
-    1px solid var(--line);
-
-  margin-top: 30px;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 900px) {
-
-  .sports-grid {
-    grid-template-columns:
-      repeat(2, 1fr);
-  }
-
-  .coach-grid {
-    grid-template-columns:
-      repeat(2, 1fr);
-  }
-
-  .hero {
-    grid-template-columns:
-      1fr;
-  }
-
-  .score-box {
-    max-width: 500px;
-  }
-}
-
-
-@media (max-width: 700px) {
-
-  .hamburger {
-    display: block;
-  }
-
-  .nav {
-    display: none;
-  }
-
-  .nav.mobile-open {
-    display: flex;
-
-    position: absolute;
-
-    top: 76px;
-
-    left: 0;
-
-    right: 0;
-
-    background:
-      rgba(13, 10, 11, 0.98);
-
-    flex-direction: column;
-
-    padding: 15px;
-
-    border-bottom:
-      1px solid var(--line);
-
-    box-shadow:
-      0 15px 30px
-      rgba(0, 0, 0, 0.3);
-  }
-
-  .hero,
-  .coach-grid,
-  .sports-grid {
-    grid-template-columns:
-      1fr;
-  }
-
-  .header {
-    padding: 0 12px;
-  }
-
-  .container {
-    padding: 35px 18px;
-  }
-
-  .filters {
-    flex-direction: column;
-  }
-
-  .header-actions {
-    gap: 5px;
-  }
-
-  .header-actions .btn,
-  .header-actions .login-btn {
-    padding: 8px 10px;
-
-    font-size: 12px;
-  }
-
-  .modal {
-    padding: 12px;
-  }
-
-  .modal-content {
-    padding: 20px;
-  }
-
-  h1 {
-    letter-spacing: -2px;
-  }
-
-  .page-title {
-    margin-bottom: 30px;
-  }
-
-  .score {
-    font-size: 65px;
-  }
-}
+</html>
